@@ -1,0 +1,159 @@
+reference notes:
+
+#replace "from" to "to" in a document.
+:%s/from/to/g
+
+#substitute only first 10 lines of text with yes/no confirmation for each replacement.
+:0,10s/from/to/gc
+
+#create new file, write text and save it
+:edit <filename> or simply :e <filename>
+press i for "insert" mode
+type text in the file.
+:write or simply :w -> this tells vim to write the text (which is stored in comp memory to disk)
+
+# getting help
+:help :edit
+:help notation
+:help keycodes
+:help usr_toc & :help index <- search for a particular topic
+
+# number of modes.
+a. normal mode - default mode in which vim opens
+b. insert mode - write text
+c. text mode - visually select a bunch of text  and do operation on it.
+
+# append & insert modes
+A <- insert at the end of the line.
+a <- insert next to the cursor
+i <- insert text just before the cursor
+I <- insert text at the start of the line.
+o <- open a new line below
+O <- open a new line above
+s <- substitute a single character and be in insert mode
+S <- substitute the whole line :) and be in insert mode.
+r <- replace a single character
+R <- replace continuous characters
+:help inserting
+:help replacing
+
+VISUAL MODE:
+v <- enter into visual mode.
+<n>e (ex: 5e) <- to select 5 words
+c <- change the above 5 words to replaced string.
+V <- enter into visual mode on line basis.
+
+TEXT BROWSING:
+w <- cursor to next word
+b <- go back on words
+} <- next paragraph
+{ <- previous paragraph
+3fh <- 3rd occurance of letter h
+35j <- 35 lines downwards
+ctrl-o <- jump backwards to previous location
+ctrl-i <- jump forward to next location
+G <- moves to the last line of the text
+1G <- moves to the first line of the text.
+^ <- moves to the first character of the line.
+$ <- moves to last character of the line.
+H <- first line of the window
+M <- middle of the window
+L <- last line of the current window.
+) <- move to next sentence.
+( <- move to previous sentence.
+ma <- create a mark named 'a' around any text, line, word etc
+'a <- to be back at the mark created above.
+:help cursor-motions for more details.
+
+TEXT OBJECTS
+# to select a paragraph and convert to uppper case:
+press v to start visual mode.
+ap <- select 'a' 'p'aragraph
+~ <- to flip the case for the above selected text.
+
+aw <- a quoted string
+ab <- a block ie within a parenthesis.
+
+:help object-motions & :help text-objects for more details
+
+HELP BROWSING
+ctrl-] <- to follow the link in the help manuals
+ctrl-o <- to jump back 
+
+EDITING BASICS
+~ <- change the case of the character :)
+:write <- write changes from buffer to disk
+:pwd <- present working directory
+
+dl <- deletes a single character
+dw <- deletes a single word
+dd <- deletes entire line.
+
+yap <- yanks(copy) a whole paragraph.
+p <- paste after current curosor position
+P <- paste before current cursor position
+
+xp <- swap 2 characters
+dwwp <- swap 2 words
+
+u <- undo the changes
+ctrl-r <- latest change after the undoing :)
+
+EDITOR's JEALOSY
+:earlier 4m <- 4 minutes earlier snapshot
+:later 45s <- take me later by 45s
+:undo 5 <- take me back to past 5 changes.
+:undolist <- undo tree :)
+#See :help :undolist for the explanation of the output from this command.
+#See :help undo-redo and :help usr_32.txt for more details.
+
+SEARHCING:
+set incsearch <- if we know only a part of the phrase or spelling
+set ignorecase <- ignorecase
+set smartcase <- search smartly - irrespective of the cases.
+
+\<step\> <- search for the "step" word and not when its substring of another text
+
+MULTIPLICITY
+:set foldmethod=indent <- place the cursor on the text you want to indent
+zc <- folds the text
+zo <- opens the text
+za <- alternates between opening and closing the fold respectively
+:nnoremap <space> za <- use spacebar in normal mode to open and close a field
+:help folding <- check for details
+
+MULTIPLE BUFFERS:
+:b 1 <- switches buffers
+:ls <- list down the buffers
+:e <filename> to open the files
+:buffers <- list of buffers
+:help buffer-list <- stuff you can do with buffers.
+
+MULTIPLE WINDOWS
+:new <- splits the window horizontalling
+:e <filename> open a new file
+:w write the buffer into the file :)
+ctrl-w (twice) <- to switch between open windows!
+ctrl-w s <- to split the current window in multiple horizontal window.
+ctrl-w v <- to split the current window in multiple vertical window.
+ctrl-w r <- to rotate the windows
+ctrl-w K <- move current window to topmost position
+ctrl-w _ <- make current window as big as possible
+ctrl-w = <- make windows equal in size.
+
+:sp <- split the window horizontally
+:vsp <- split the window vertically
+:resize 10 <- to make it 10 lines long display
+:help windows <- to get help on handling windows :)
+
+
+TAB PAGES
+:tabnew <- open a new tab with new buffer
+gt <- go to next tab
+gT <- go to opposite direction in tab
+ctrl-w j <- browse horizontally split windows
+ctrl-w k <- browse horizontally split windows.
+:tabc <- closes the windows
+:tabmove 0 <- move a tab to position 0
+
+
