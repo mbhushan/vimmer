@@ -156,4 +156,29 @@ ctrl-w k <- browse horizontally split windows.
 :tabc <- closes the windows
 :tabmove 0 <- move a tab to position 0
 
+MACROS
+qa <- to start recoding the changes
+q <- to stop recording the macro changes.
+@a <- to replay the changes captured in macro "qa"
+Note
+If you want to simply repeat the last action and not a sequence of actions, you do not
+have to use macros, just press . (dot).
 
+indent-multiple-lines-quickly-in-vi
+=========================================================
+Use the > command. To indent 5 lines, 5>>. To mark a block of lines and indent it, Vjj> to indent 3 lines (vim only). To indent a curly-braces block, put your cursor on one of the curly braces and use >%.
+
+If you’re copying blocks of text around and need to align the indent of a block in its new location, use ]p instead of just p. This aligns the pasted block with the surrounding text.
+
+Cut and paste:
+============================================================
+Position the cursor where you want to begin cutting.
+Press v to select characters (or uppercase V to select whole lines).
+Move the cursor to the end of what you want to cut.
+Press d to cut (or y to copy).
+Move to where you would like to paste.
+Press P to paste before the cursor, or p to paste after.
+Copy and paste is performed with the same steps except for step 4 where you would press y instead of d:
+
+d = delete = cut
+y = yank = copy
