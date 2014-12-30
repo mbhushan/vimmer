@@ -1,0 +1,35 @@
+// list all the files you've added since HEAD which don't exist in HEAD.
+git diff --cached --name-only --diff-filter=A
+
+//push to master
+git push origin master
+
+
+//to skip username n passwd:
+git push --repo <repo name - like https://manib@bitbucket.org/roshansingh/nationstory.git>
+
+
+git config --global credential.helper 'cache --timeout 86400'
+git help credential-cache
+
+issue - github, dns lookup failed
+to access dns cache for chrome browser
+chrome://net-internals/#dns
+
+
+====================================================================
+issue - github dns lookup failing - below trick resolved it - by maintaing google global dns setting in resolveconf/resolv.conf.d/head
+
+Persist dns nameserver for ubuntu 14.04
+If you are using ubuntu 14.04, you may find you can not setting dns on your /etc/resolv.conf
+This is because ubuntu using resolvconf to manage the dns setting, every times system boot, resolvconf will regenerate resolv.conf file.
+But there always have way to do this.
+vim /etc/resolvconf/resolv.conf.d/head  
+put your nameserver list in
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4 then run 
+
+resolvconf -u
+this command tell resolvconf to regenerate the resolve file
+enjoy it.
